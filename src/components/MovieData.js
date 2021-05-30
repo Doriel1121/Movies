@@ -14,38 +14,38 @@ export default class MovieData extends Component {
     this.state = {
       changedProp: [],
       characters: [],
-      movieData: {},
       starships: [],
       planets: [],
       species: [],
       favorite: [],
-      isFavorite: false,
+      liked: false,
     };
   }
 
   componentDidMount = () => {
-    this.revealAllCharacters();
+    this.getAllCharacrters();
     this.getAllStarShips();
     this.getPlanets();
     this.getAllSpecies();
+    this.CheckSavedMovies();
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.movie[0].title !== this.props.movie[0].title) {
+    if (prevProps.movie[0].episode_id !== this.props.movie[0].episode_id) {
+      // Its better to use 'episode_id' instead of title, its more reliable
       this.setState({
         changedProp: this.props.movie,
         characters: [],
       });
       this.CheckSavedMovies();
-      this.revealAllCharacters();
+      this.getAllCharacrters();
       this.getAllStarShips();
       this.getPlanets();
       this.getAllSpecies();
     }
   }
 
-  revealAllCharacters = () => {
-    this.setState({ changedProp: this.props.movie });
+  getAllCharacrters = () => {
     this.props.movie[0].characters.map((element, index) => {
       axios
         .get(`${element}`)
@@ -106,7 +106,7 @@ export default class MovieData extends Component {
     });
   };
 
-  handleButton = () => {
+  handleLikeButton = () => {
     localStorage.setItem(
       this.props.movie[0].episode_id,
       JSON.stringify(this.props.movie)
@@ -122,13 +122,11 @@ export default class MovieData extends Component {
   };
 
   CheckSavedMovies = () => {
-    if (this.state.favorite.length > 0) {
-      let checkExistence = this.state.favorite.includes(
-        this.props.movie[0].episode_id
-      );
-      console.log(checkExistence);
-      this.setState({ isFavorite: checkExistence });
+    var key = localStorage.getItem(this.props.movie[0].episode_id);
+    if (key !== null) {
+      this.setState({ liked: true });
     } else {
+      this.setState({ liked: false });
     }
   };
 
@@ -141,10 +139,10 @@ export default class MovieData extends Component {
     return (
       <div id="movieDataContainer">
         <div id="iconContainer">
-          <button onClick={() => this.handleButton()} id="favoriteIcon">
+          <button onClick={() => this.handleLikeButton()} id="favoriteIcon">
             <FavoriteBorderIcon
               id="fav"
-              color={this.state.isFavorite ? "primary" : "action"}
+              color={this.state.liked ? "primary" : "action"}
             />
           </button>
         </div>

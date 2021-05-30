@@ -8,7 +8,7 @@ class MoviesPage extends PureComponent {
 
     this.state = {
       moviesList: [],
-      sniglemoviedata: [],
+      selectedMovie: [],
     };
   }
 
@@ -23,9 +23,8 @@ class MoviesPage extends PureComponent {
       });
   };
 
-  PassDataToChild = (movie) => {
-    console.log(movie);
-    this.setState({ sniglemoviedata: [movie] });
+  changeSelectedMovie = (movie) => {
+    this.setState({ selectedMovie: [movie] });
   };
 
   render() {
@@ -39,7 +38,7 @@ class MoviesPage extends PureComponent {
               {this.state.moviesList.map((element, index) => {
                 return (
                   <li key={index}>
-                    <a onClick={() => this.PassDataToChild(element)}>
+                    <a onClick={() => this.changeSelectedMovie(element)}>
                       {element.title}
                     </a>
                   </li>
@@ -48,8 +47,8 @@ class MoviesPage extends PureComponent {
             </ul>
           </div>
           <div className="moviesExpand">
-            {this.state.sniglemoviedata.length > 0 ? (
-              <MovieData movie={this.state.sniglemoviedata} />
+            {this.state.selectedMovie.length > 0 ? (
+              <MovieData movie={this.state.selectedMovie} />
             ) : null}
           </div>
         </div>
