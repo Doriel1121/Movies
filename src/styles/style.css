@@ -1,0 +1,93 @@
+body {
+  background-size: cover;
+  color: white;
+}
+
+.container #title {
+  font-size: 50px;
+  text-align: center;
+  font-family: starWar;
+}
+
+.main-div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 30px;
+}
+
+.main-div .movies {
+  height: 100%;
+  width: 20%;
+  -webkit-box-shadow: 14px 0 14px -17px #3e78f5;
+          box-shadow: 14px 0 14px -17px #3e78f5;
+}
+
+.main-div .movies h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.main-div .movies ul {
+  list-style-type: none;
+}
+
+.main-div .movies ul li {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.main-div .movies ul li :hover {
+  cursor: pointer;
+  color: #5789f3;
+  text-shadow: 0 0 10px #3e78f5, 0 0 20px #3e78f5, 0 0 80px #3e78f5, 0 0 120px #3e78f5;
+}
+
+.main-div .moviesExpand {
+  width: 70%;
+  margin-top: 43px;
+}
+
+.main-div .moviesExpand #favoriteIcon {
+  margin: 0px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+
+#movieDataContainer #iconContainer {
+  text-align: right;
+}
+
+#movieDataContainer .accordion {
+  background-color: transparent;
+  color: #d6d6d6;
+  border-bottom: 0px;
+}
+
+#movieDataContainer .accordion .iconColor {
+  color: #65a2ff;
+}
+
+#movieDataContainer .accSummary {
+  padding-left: 0px;
+}
+
+#movieDataContainer b {
+  color: #65a2ff;
+}
+
+@media screen and (max-width: 760px) {
+  .main-div .movies {
+    width: 40%;
+    font-size: small;
+  }
+  .main-div .moviesExpand {
+    width: 55%;
+    font-size: small;
+  }
+}
+/*# sourceMappingURL=style.css.map */

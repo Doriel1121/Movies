@@ -1,0 +1,88 @@
+body{
+    background-size: cover;
+    color: white;
+}
+.container{
+    #title{
+        font-size: 50px;
+        text-align: center;
+        font-family: starWar;
+    }
+}
+.main-div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    .movies{
+        height: 100%;
+        width: 20%;
+        box-shadow: 14px 0 14px -17px #3e78f5;
+
+        h2{
+            text-align: center;
+            margin-top: 0px;
+        }
+        ul{
+            list-style-type: none;
+            li{
+                margin-top: 40px;
+                margin-bottom: 40px;
+
+            }
+            li :hover{
+                cursor: pointer;
+                color: #5789f3;
+                text-shadow: 0 0 10px #3e78f5,
+                             0 0 20px #3e78f5,
+                             0 0 80px #3e78f5,
+                             0 0 120px #3e78f5,
+            }
+        }
+    }
+    .moviesExpand{
+        width: 70%;
+        margin-top: 43px;
+        #favoriteIcon{
+            margin:0px;
+            background-color: transparent;
+            border: 0px;
+            cursor: pointer;
+        }
+    }
+}
+
+#movieDataContainer{
+    #iconContainer{
+        text-align: right;
+    }
+    .accordion{
+        background-color: transparent;
+        color: rgb(214, 214, 214);
+        border-bottom: 0px;
+        .iconColor{
+            color: rgb(101, 162, 255);
+        }
+    }
+    .accSummary{
+        padding-left: 0px;
+
+    }
+    b{
+        color: rgb(101, 162, 255);
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .main-div{
+        .movies{
+            width: 40%;
+            font-size: small;
+        }
+        .moviesExpand{
+            width: 55%;
+            font-size: small;
+        }
+    }
+}
+
