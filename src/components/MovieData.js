@@ -32,7 +32,6 @@ export default class MovieData extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.movie[0].episode_id !== this.props.movie[0].episode_id) {
-      // Its better to use 'episode_id' instead of title, its more reliable
       this.setState({
         changedProp: this.props.movie,
         characters: [],
