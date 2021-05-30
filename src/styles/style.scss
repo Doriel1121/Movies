@@ -48,6 +48,10 @@ body{
             background-color: transparent;
             border: 0px;
             cursor: pointer;
+            border-radius: 30px;
+        }
+        .MuiSvgIcon-colorAction{
+            color: white;
         }
     }
 }
@@ -61,8 +65,9 @@ body{
         color: rgb(214, 214, 214);
         border-bottom: 0px;
         .iconColor{
-            color: rgb(101, 162, 255);
+            color: #65a2ff;
         }
+        
     }
     .accSummary{
         padding-left: 0px;
@@ -74,14 +79,24 @@ body{
 }
 
 @media screen and (max-width: 760px) {
+    body{
+        font-size: small;
+    }
     .main-div{
         .movies{
-            width: 40%;
+            width: 36%;
             font-size: small;
+            box-shadow: 14px 0 14px -21px #3e78f5;
+            ul{
+                padding-left: 10px;
+            }
         }
         .moviesExpand{
             width: 55%;
             font-size: small;
+            .MuiTypography-body1{
+                font-size: small;
+            }
         }
     }
 }

@@ -56,6 +56,11 @@ body {
   background-color: transparent;
   border: 0px;
   cursor: pointer;
+  border-radius: 30px;
+}
+
+.main-div .moviesExpand .MuiSvgIcon-colorAction {
+  color: white;
 }
 
 #movieDataContainer #iconContainer {
@@ -81,12 +86,23 @@ body {
 }
 
 @media screen and (max-width: 760px) {
-  .main-div .movies {
-    width: 40%;
+  body {
     font-size: small;
+  }
+  .main-div .movies {
+    width: 36%;
+    font-size: small;
+    -webkit-box-shadow: 14px 0 14px -21px #3e78f5;
+            box-shadow: 14px 0 14px -21px #3e78f5;
+  }
+  .main-div .movies ul {
+    padding-left: 10px;
   }
   .main-div .moviesExpand {
     width: 55%;
+    font-size: small;
+  }
+  .main-div .moviesExpand .MuiTypography-body1 {
     font-size: small;
   }
 }

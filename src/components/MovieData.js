@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import axios from "axios";
 
-export default class Characters extends Component {
+export default class MovieData extends Component {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,6 @@ export default class Characters extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.movie[0].title !== this.props.movie[0].title) {
-      console.log("in");
       this.setState({
         changedProp: this.props.movie,
         characters: [],
@@ -47,12 +46,10 @@ export default class Characters extends Component {
 
   revealAllCharacters = () => {
     this.setState({ changedProp: this.props.movie });
-    console.log(this.props.movie[0]);
     this.props.movie[0].characters.map((element, index) => {
       axios
         .get(`${element}`)
         .then((res) => {
-          console.log(res);
           this.setState({
             characters: [...this.state.characters, res.data.name],
             movieData: res,
@@ -65,13 +62,10 @@ export default class Characters extends Component {
   };
 
   getAllStarShips = () => {
-    // this.setState({ changedProp: this.props.movie });
-    console.log(this.props.movie[0]);
     this.props.movie[0].starships.map((element, index) => {
       axios
         .get(`${element}`)
         .then((res) => {
-          console.log(res);
           this.setState({
             starships: [...this.state.starships, res.data.name],
           });
@@ -83,12 +77,10 @@ export default class Characters extends Component {
   };
 
   getPlanets = () => {
-    console.log(this.props.movie[0]);
     this.props.movie[0].planets.map((element, index) => {
       axios
         .get(`${element}`)
         .then((res) => {
-          console.log(res);
           this.setState({
             planets: [...this.state.planets, res.data.name],
           });
@@ -100,12 +92,10 @@ export default class Characters extends Component {
   };
 
   getAllSpecies = () => {
-    console.log(this.props.movie[0]);
     this.props.movie[0].species.map((element, index) => {
       axios
         .get(`${element}`)
         .then((res) => {
-          console.log(res);
           this.setState({
             species: [...this.state.species, res.data.name],
           });
@@ -132,17 +122,17 @@ export default class Characters extends Component {
   };
 
   CheckSavedMovies = () => {
-    console.log(this.state.favorite);
     if (this.state.favorite.length > 0) {
-      let m = this.state.favorite.includes(this.props.movie[0].episode_id);
-      console.log(m);
-      this.setState({ isFavorite: m });
+      let checkExistence = this.state.favorite.includes(
+        this.props.movie[0].episode_id
+      );
+      console.log(checkExistence);
+      this.setState({ isFavorite: checkExistence });
     } else {
     }
   };
 
   render() {
-    console.log(this.state.changedProp);
     if (this.state.changedProp.length > 0) {
       var producersName = this.state.changedProp[0].producer;
       var releaseDate = this.state.changedProp[0].release_date;
@@ -185,7 +175,7 @@ export default class Characters extends Component {
           <AccordionDetails>
             <Typography>
               {this.state.characters.map((element, index) => {
-                return <spam key={index}>{element} , </spam>;
+                return <span key={index}>{element} , </span>;
               })}
             </Typography>
           </AccordionDetails>
@@ -202,7 +192,7 @@ export default class Characters extends Component {
           <AccordionDetails>
             <Typography>
               {this.state.starships.map((element, index) => {
-                return <spam key={index}>{element} , </spam>;
+                return <span key={index}>{element} , </span>;
               })}
             </Typography>
           </AccordionDetails>
@@ -219,7 +209,7 @@ export default class Characters extends Component {
           <AccordionDetails>
             <Typography>
               {this.state.planets.map((element, index) => {
-                return <spam key={index}>{element} , </spam>;
+                return <span key={index}>{element} , </span>;
               })}
             </Typography>
           </AccordionDetails>
@@ -236,7 +226,7 @@ export default class Characters extends Component {
           <AccordionDetails>
             <Typography>
               {this.state.species.map((element, index) => {
-                return <spam key={index}>{element} , </spam>;
+                return <span key={index}>{element} , </span>;
               })}
             </Typography>
           </AccordionDetails>

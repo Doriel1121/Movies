@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { PureComponent } from "react";
-import Characters from "./Characters";
+import MovieData from "./MovieData";
 
 class MoviesPage extends PureComponent {
   constructor(props) {
@@ -17,7 +17,6 @@ class MoviesPage extends PureComponent {
       .get("https://swapi.dev/api/films")
       .then((res) => {
         this.setState({ moviesList: res.data.results });
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +49,7 @@ class MoviesPage extends PureComponent {
           </div>
           <div className="moviesExpand">
             {this.state.sniglemoviedata.length > 0 ? (
-              <Characters movie={this.state.sniglemoviedata} />
+              <MovieData movie={this.state.sniglemoviedata} />
             ) : null}
           </div>
         </div>
