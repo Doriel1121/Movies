@@ -2,6 +2,65 @@ body{
     background-size: cover;
     color: white;
 }
+.firstpage{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#figureone{
+    top: 500px;
+    right: 20px;
+}
+#figuretwo{
+    top: 500px;
+    right: 320px;
+}
+#figurethree{
+    top: 500px;
+    right: 200px;
+}
+#figurefour{
+    top: 300px;
+    right: 120px;
+}
+#figurefive{
+    top: 500px;
+    right: 20px;
+}
+
+.Link{
+    font-family: starWar;
+    text-decoration: none;
+    color: #adb8d1;
+    font-size:50px ;
+    transition: text-shadow 1s ,font-size 1s;
+}
+
+.figures{
+    z-index: -1000;
+    overflow: hidden;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+}
+
+.Link:hover{
+    opacity: 1;
+    text-shadow: 0 0 10px #2600ff,
+    0 0 20px #bac8d8,
+    0 0 80px #7a9cc9,
+    0 0 120px #5d73b1;
+    font-size: 72px;
+}
+
+
 .container{
     #title{
         font-size: 50px;

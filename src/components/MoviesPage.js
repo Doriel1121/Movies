@@ -24,6 +24,7 @@ class MoviesPage extends PureComponent {
   };
 
   changeSelectedMovie = (movie) => {
+    console.log("1");
     this.setState({ selectedMovie: [movie] });
   };
 

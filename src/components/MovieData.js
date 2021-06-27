@@ -23,6 +23,7 @@ export default class MovieData extends Component {
   }
 
   componentDidMount = () => {
+    console.log(this.props.movie);
     this.getAllCharacrters();
     this.getAllStarShips();
     this.getPlanets();
@@ -31,16 +32,20 @@ export default class MovieData extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.movie[0].episode_id !== this.props.movie[0].episode_id) {
-      this.setState({
-        changedProp: this.props.movie,
-        characters: [],
-      });
-      this.CheckSavedMovies();
-      this.getAllCharacrters();
-      this.getAllStarShips();
-      this.getPlanets();
-      this.getAllSpecies();
+    if (this.state.changedProp.length > 0) {
+      if (prevProps.movie[0].episode_id !== this.props.movie[0].episode_id) {
+        this.setState({
+          changedProp: this.props.movie,
+          characters: [],
+        });
+        this.CheckSavedMovies();
+        this.getAllCharacrters();
+        this.getAllStarShips();
+        this.getPlanets();
+        this.getAllSpecies();
+      }
+    } else {
+      this.setState({ changedProp: this.props.movie });
     }
   }
 
@@ -131,6 +136,7 @@ export default class MovieData extends Component {
 
   render() {
     if (this.state.changedProp.length > 0) {
+      console.log("2");
       var producersName = this.state.changedProp[0].producer;
       var releaseDate = this.state.changedProp[0].release_date;
       var Director = this.state.changedProp[0].director;
