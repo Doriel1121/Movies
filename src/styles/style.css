@@ -17,31 +17,6 @@ body {
   text-align: center;
 }
 
-#figureone {
-  top: 500px;
-  right: 20px;
-}
-
-#figuretwo {
-  top: 500px;
-  right: 320px;
-}
-
-#figurethree {
-  top: 500px;
-  right: 200px;
-}
-
-#figurefour {
-  top: 300px;
-  right: 120px;
-}
-
-#figurefive {
-  top: 500px;
-  right: 20px;
-}
-
 .Link {
   font-family: starWar;
   text-decoration: none;
@@ -54,18 +29,170 @@ body {
 .figures {
   z-index: -1000;
   overflow: hidden;
-  width: 200px;
+  width: 150px;
   top: 50%;
-  left: 50%;
+  left: 45%;
   height: auto;
   position: absolute;
   opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+@-webkit-keyframes movement1 {
+  0% {
+    top: 45%;
+    opacity: 0;
+  }
+  100% {
+    top: 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes movement1 {
+  0% {
+    top: 45%;
+    opacity: 0;
+  }
+  100% {
+    top: 10%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes movement2 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 30%;
+    left: 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes movement2 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 30%;
+    left: 10%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes movement3 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 30%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@keyframes movement3 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 30%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes movement4 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 55%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@keyframes movement4 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 55%;
+    left: 70%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes movement5 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 70%;
+    left: 20%;
+    opacity: 1;
+  }
+}
+
+@keyframes movement5 {
+  0% {
+    top: 45%;
+    left: 50%;
+    opacity: 0;
+  }
+  100% {
+    top: 70%;
+    left: 20%;
+    opacity: 1;
+  }
 }
 
 .Link:hover {
-  opacity: 1;
   text-shadow: 0 0 10px #2600ff, 0 0 20px #bac8d8, 0 0 80px #7a9cc9, 0 0 120px #5d73b1;
   font-size: 72px;
+}
+
+.Link:hover ~ #figureone {
+  -webkit-animation: movement2 2s forwards;
+          animation: movement2 2s forwards;
+}
+
+.Link:hover ~ #figuretwo {
+  -webkit-animation: movement3 2s forwards;
+          animation: movement3 2s forwards;
+}
+
+.Link:hover ~ #figurethree {
+  -webkit-animation: movement4 2s forwards;
+          animation: movement4 2s forwards;
+}
+
+.Link:hover ~ #figurefour {
+  -webkit-animation: movement1 2s forwards;
+          animation: movement1 2s forwards;
+}
+
+.Link:hover ~ #figurefive {
+  -webkit-animation: movement5 2s forwards;
+          animation: movement5 2s forwards;
 }
 
 .container #title {
